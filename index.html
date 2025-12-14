@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rhythms of India – An International Cultural Experience</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- =========================
+       GLOBAL STYLES
+       ========================= -->
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #ffe4e6 100%);
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================
+       TYPOGRAPHY
+       ========================= */
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 6vw, 6rem);
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+    }
+
+    h3 {
+      font-size: 1.7rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #374151;
+    }
+
+    /* =========================
+       LAYOUT UTILITIES
+       ========================= */
+    .container {
+      max-width: 1300px;
+      margin: auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 6rem 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    /* =========================
+       NAVIGATION BAR
+       ========================= */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(14px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #ea580c;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* =========================
+       HERO SECTION
+       ========================= */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      max-width: 750px;
+    }
+
+    .hero-buttons {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.9rem 2.2rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: #ea580c;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #c2410c;
+    }
+
+    .btn-outline {
+      border-color: #ea580c;
+      color: #ea580c;
+    }
+
+    .btn-outline:hover {
+      background: #ea580c;
+      color: white;
+    }
+
+    /* =========================
+       GLASS CARDS
+       ========================= */
+    .card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      border-radius: 28px;
+      padding: 2.5rem;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.08);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 45px 90px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-bottom: 1rem;
+    }
+
+    /* =========================
+       FEATURE SECTIONS
+       ========================= */
+    .highlight {
+      background: rgba(255,255,255,0.6);
+      border-radius: 50px;
+      padding: 4rem 3rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      align-items: center;
+    }
+
+    /* =========================
+       QUOTE SECTION
+       ========================= */
+    .quote {
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-style: italic;
+      color: #7c2d12;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      padding: 4rem 0 2rem;
+      margin-top: 6rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    footer h4 {
+      margin-bottom: 1.2rem;
+    }
+
+    footer p {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    /* =========================
+       RESPONSIVE DESIGN
+       ========================= */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      header {
+        padding-top: 5rem;
+      }
+
+      .hero-content p {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">Rhythms of India</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#bengal">West Bengal</a>
+        <a href="#tamil">Tamil Nadu</a>
+        <a href="#heritage">Heritage</a>
+          <a href="TimelineOfIndianDanceHeritage.html">Timeline</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="container">
+    <div class="hero-content">
+      <h1>Traditional Dances of India</h1>
+      <p>
+        Discover the soul of India through its classical and folk dance traditions.
+        This international‑level cultural showcase explores the elegance of West Bengal
+        and the rhythmic mastery of Tamil Nadu.
+      </p>
+      <div class="hero-buttons">
+        <a href="#bengal" class="btn btn-primary">Explore West Bengal</a>
+        <a href="#tamil" class="btn btn-outline">Explore Tamil Nadu</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container highlight">
+      <div class="two-column">
+        <div>
+          <h2>Dance as Cultural Identity</h2>
+          <p>
+            Indian dance is more than movement — it is history, philosophy,
+            storytelling, and devotion expressed through rhythm and gesture.
+            Each region of India carries its own vocabulary of expression.
+          </p>
+          <p>
+            This website is designed to international museum standards, presenting
+            Indian heritage with clarity, elegance, and respect for tradition.
+          </p>
+        </div>
+        <div class="quote">
+          “When the body moves, history speaks.”
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEST BENGAL -->
+  <section id="bengal" class="section">
+    <div class="container">
+      <h2>West Bengal Traditional Dances</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Chhau Dance</h3>
+          <p>
+            Chhau is a powerful semi‑classical dance blending martial arts, mythology,
+            and folk traditions. Dancers wear elaborate masks and perform dramatic
+            movements inspired by epics such as the Ramayana and Mahabharata.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Baul Dance</h3>
+          <p>
+            Performed by mystic minstrels, Baul dance reflects spiritual freedom and
+            humanism. It is deeply connected with music, philosophy, and devotional
+            expression.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Gambhira</h3>
+          <p>
+            Gambhira is a folk performance tradition combining dance, drama, and
+            dialogue. It addresses social issues, moral lessons, and community life
+            through expressive rhythm.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAMIL NADU -->
+  <section id="tamil" class="section">
+    <div class="container">
+      <h2>Tamil Nadu Traditional Dances</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Bharatanatyam</h3>
+          <p>
+            Bharatanatyam is one of the oldest classical dance forms in the world.
+            Known for its geometric precision, expressive hand gestures, and facial
+            storytelling, it originated in South Indian temples.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Karagattam</h3>
+          <p>
+            Karagattam is a vibrant folk dance performed while balancing decorated pots
+            on the head. It symbolizes rain, fertility, and devotion to village deities.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Kummi</h3>
+          <p>
+            Kummi is among the oldest Tamil folk dances. Performed in circles with
+            rhythmic clapping, it represents joy, unity, and community celebration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERITAGE -->
+  <section id="heritage" class="section">
+    <div class="container highlight">
+      <h2>Preserving Intangible Heritage</h2>
+      <p>
+        Traditional dances are recognized globally as intangible cultural heritage.
+        Preserving them ensures that future generations understand the values,
+        aesthetics, and philosophies of ancient civilizations.
+      </p>
+      <p>
+        West Bengal and Tamil Nadu stand as living museums of Indian culture,
+        continuing traditions that are thousands of years old.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Rhythms of India</h4>
+          <p>
+            An international‑level cultural presentation celebrating
+            Indian traditional dance heritage.
+          </p>
+        </div>
+        <div>
+          <h4>Regions</h4>
+          <p>West Bengal</p>
+          <p>Tamil Nadu</p>
+        </div>
+        <div>
+          <h4>Purpose</h4>
+          <p>Education</p>
+          <p>Cultural Preservation</p>
+          <p>Global Awareness</p>
+        </div>
+         <div>
+          <h4>Team;-</h4>
+          <p>Leader</p>
+          <p>Mahidhar</p>
+          <p>Teammates;-</p>
+          <p>Rithvik</p>
+          <p>Mahitha</p>
+          <p>Shrikaa</p>
+          <p>Anexana</p>
+        </div>
+      </div>
+      <div class="copyright">
+        © 2025 Rhythms of India · Designed to International Cultural Standards
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>                                      

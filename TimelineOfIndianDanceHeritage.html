@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline | Rhythms of India</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       RESET & BASE
+       ========================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff7ed, #ffffff, #ffe4e6);
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================
+       NAVIGATION
+       ========================= */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      max-width: 1300px;
+      margin: auto;
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.95rem;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+    header {
+      padding-top: 7rem;
+      padding-bottom: 4rem;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #374151;
+    }
+
+    /* =========================
+       TIMELINE
+       ========================= */
+    .timeline {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #ea580c, #be123c);
+      border-radius: 10px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(even) .content {
+      grid-column: 2;
+      text-align: left;
+    }
+
+    .timeline-item:nth-child(odd) .content {
+      grid-column: 1;
+      text-align: right;
+    }
+
+    .dot {
+      position: absolute;
+      left: 50%;
+      top: 0.5rem;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 18px;
+      background: white;
+      border: 4px solid #ea580c;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .content {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(14px);
+      padding: 2rem 2.5rem;
+      border-radius: 24px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+    }
+
+    .content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .content span {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #ea580c;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      padding: 3rem 1rem;
+      margin-top: 6rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+    @media (max-width: 900px) {
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        padding-left: 3rem;
+      }
+
+      .timeline-item .content {
+        grid-column: 1 !important;
+        text-align: left;
+      }
+
+      .dot {
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="logo">Rhythms of India</div>
+      <div class="nav-links">
+        <a href="fun.html">Home</a>
+        <a href="#">Timeline</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Timeline of Indian Dance Heritage</h1>
+    <p>
+      A chronological journey tracing the evolution of traditional dances in
+      West Bengal and Tamil Nadu — from ancient rituals to global recognition.
+    </p>
+  </header>
+
+  <!-- TIMELINE -->
+  <section class="timeline">
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+      <div class="content">
+        <span>2000 BCE – 500 BCE</span>
+        <h3>Ritual Origins</h3>
+        <p>
+          Early dance forms emerge as ritual practices linked to nature worship,
+          fertility, harvest festivals, and spiritual ceremonies across India.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+      <div class="content">
+        <span>200 BCE – 500 CE</span>
+        <h3>Natyashastra Period</h3>
+        <p>
+          Sage Bharata's Natyashastra formalizes dance, drama, and music, laying
+          the foundation for classical traditions such as Bharatanatyam.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+      <div class="content">
+        <span>8th – 12th Century</span>
+        <h3>Temple & Folk Expansion</h3>
+        <p>
+          Dance flourishes in temples of Tamil Nadu, while folk traditions like
+          Chhau and Kummi develop as community expressions.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+      <div class="content">
+        <span>15th – 18th Century</span>
+        <h3>Bhakti Movement</h3>
+        <p>
+          Devotional movements inspire expressive dances such as Baul, focusing
+          on spiritual freedom, music, and philosophical storytelling.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+      <div class="content">
+        <span>19th – Early 20th Century</span>
+        <h3>Colonial Decline & Revival</h3>
+        <p>
+          Traditional dances face decline during colonial rule, followed by
+          revival movements led by cultural reformers and artists.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+      <div class="content">
+        <span>Late 20th Century</span>
+        <h3>Global Recognition</h3>
+        <p>
+          Indian classical and folk dances gain international stages, academic
+          study, and recognition as intangible cultural heritage.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="dot"></div>
+      <div class="content">
+        <span>21st Century</span>
+        <h3>Preservation & Innovation</h3>
+        <p>
+          Artists blend tradition with contemporary expression while preserving
+          authenticity through education, festivals, and digital platforms.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Rhythms of India · Timeline of Cultural Heritage
+  </footer>
+
+  <script>
+    // Auto-scroll through timeline
+    let scrollPosition = 0;
+    const scrollSpeed = 1; // lower = slower
+
+    function autoScroll() {
+      scrollPosition += scrollSpeed;
+      window.scrollTo(0, scrollPosition);
+
+      // When bottom is reached, redirect to home
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+        setTimeout(() => {
+          window.location.href = 'fun.html';
+        }, 2000); // wait 2 seconds at end
+        return;
+      }
+      requestAnimationFrame(autoScroll);
+    }
+
+    // Start scrolling after page load
+    window.onload = () => {
+      setTimeout(autoScroll, 1500); // small delay before scrolling
+    };
+  </script>
+</body>
+</html>
