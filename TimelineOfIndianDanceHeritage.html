@@ -205,8 +205,8 @@
     <div class="nav-inner">
       <div class="logo">Rhythms of India</div>
       <div class="nav-links">
-        <a href="index">Home</a>
-        <a href="#">Timeline</a>
+        <a href="index.html">Home</a>
+        <a href="TimelineOfIndianDanceHeritage.html">Timeline</a>
       </div>
     </div>
   </nav>
@@ -314,31 +314,34 @@
     © 2025 Rhythms of India · Timeline of Cultural Heritage
   </footer>
 
-  <script>
-    // Auto-scroll through timeline
-    let scrollPosition = 0;
-    const scrollSpeed = 1; // lower = slower
+ <script>
+  let scrollPosition = 0;
+  const scrollSpeed = 1;
+  let redirected = false;
 
-    function autoScroll() {
-      scrollPosition += scrollSpeed;
-      window.scrollTo(0, scrollPosition);
+  function autoScroll() {
+    scrollPosition += scrollSpeed;
+    window.scrollTo(0, scrollPosition);
 
-      // When bottom is reached, redirect to home
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
-        setTimeout(() => {
-          window.location.href = 'fun.html';
-        }, 2000); // wait 2 seconds at end
-        return;
-      }
-      requestAnimationFrame(autoScroll);
+    // When bottom is reached, redirect to home
+    if (
+      !redirected &&
+      (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2
+    ) {
+      redirected = true;
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 2000);
+      return;
     }
 
-    // Start scrolling after page load
-    window.onload = () => {
-      setTimeout(autoScroll, 1500); // small delay before scrolling
-    };
-  </script>
+    requestAnimationFrame(autoScroll);
+  }
+
+  // Start scrolling after page load
+  window.onload = () => {
+    setTimeout(autoScroll, 1500);
+  };
+</script>
 </body>
 </html>
-
-
