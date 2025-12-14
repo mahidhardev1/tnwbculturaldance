@@ -314,7 +314,7 @@
     © 2025 Rhythms of India · Timeline of Cultural Heritage
   </footer>
 
- <script>
+<script>
   let scrollPosition = 0;
   const scrollSpeed = 1;
   let redirected = false;
@@ -323,14 +323,13 @@
     scrollPosition += scrollSpeed;
     window.scrollTo(0, scrollPosition);
 
-    // When bottom is reached, redirect to home
     if (
       !redirected &&
       (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2
     ) {
       redirected = true;
       setTimeout(() => {
-        window.location.href = 'index.html';
+        window.location.href = '/'; // ✅ FIXED
       }, 2000);
       return;
     }
@@ -338,10 +337,11 @@
     requestAnimationFrame(autoScroll);
   }
 
-  // Start scrolling after page load
   window.onload = () => {
     setTimeout(autoScroll, 1500);
   };
 </script>
+
 </body>
 </html>
+
